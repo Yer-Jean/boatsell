@@ -1,6 +1,8 @@
 ### Main template
 # macOS
 .DS_Store
+*_old.*
+*_original.*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

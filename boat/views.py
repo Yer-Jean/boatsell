@@ -1,3 +1,9 @@
 from django.shortcuts import render
+from django.views.generic import ListView
 
-# Create your views here.
+from boat.models import Boat
+
+
+class BoatListView(ListView):
+    model = Boat
+
