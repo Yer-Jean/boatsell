@@ -1,10 +1,10 @@
 {% extends 'boat/base.html' %}
 
 {% block content %}
-<!--<div class="row">-->
-    <div class="col">
-        <div class="card">
-            <div class="card-header">{{ object.name }}</div>
+
+    <div class="col-md-12">
+        <div class="card mb-4 rounded-3 shadow-sm ">
+            <div class="card-header py-3">{{ object.name }}</div>
             <div class="card-body">
                 <table class="table table-striped">
                     <tr>
@@ -12,26 +12,25 @@
                         <th>Окончание</th>
                         <th>Владелец</th>
                     </tr>
-
-                {% for history_item in object.boathistory_set.all %}
-                    <tr>
-                        <td>{{ history_item.start_year }}</td>
-                        <td>
-                            {% if history_item.stop_year %}
-                                {{ history_item.stop_year }}
-                            {% else %}
-                                по настоящее время
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if history_item.owner %}
-                                {{ history_item.owner }}
-                            {% else %}
-                                не указан
-                            {% endif %}
-                        </td>
-                    </tr>
-                {% endfor %}
+                    {% for history_item in object.boathistory_set.all %}
+                        <tr>
+                            <td>{{ history_item.start_year }}</td>
+                            <td>
+                                {% if history_item.stop_year %}
+                                    {{ history_item.stop_year }}
+                                {% else %}
+                                    по настоящее время
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if history_item.owner %}
+                                    {{ history_item.owner }}
+                                {% else %}
+                                    не указан
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
                 </table>
             </div>
             <div class="card-footer">
@@ -39,6 +38,5 @@
             </div>
         </div>
     </div>
-<!--</div>-->
 
 {% endblock %}
